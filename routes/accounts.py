@@ -1,5 +1,6 @@
 from globals import transaction
 from fastapi import APIRouter, Depends, HTTPException
+import os
 
 router = APIRouter(
     prefix="/accounts",
@@ -7,11 +8,13 @@ router = APIRouter(
 
 
 @router.get("/")
-async def get_accounts():
+async def get_accounts(key: str):
+    if key != os.environ.get("API_KEY"):
+        return {"detail": "Unauthorized! Invalid API key"}
     data = transaction("select id, email, pass, creation, deletion, price, website from account",
                        fetchall=True)
     return {"data": [dict(zip(['id', 'email', 'pass', 'creation', 'deletion', 'price', 'website'], item))
-                         for item in data]}
+                     for item in data]}
 
 
 @router.get("/{account_id}")
