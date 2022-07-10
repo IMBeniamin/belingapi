@@ -4,7 +4,6 @@ import routes
 app = FastAPI(
     title="belingapi",
     description="Api for belinger",
-    version="1.0.0",
     contact={
         "name": "I.M. Beniamin",
         "url": "https://www.derpi.it/#contact",
