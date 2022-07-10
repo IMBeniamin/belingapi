@@ -18,7 +18,7 @@ async def get_accounts(key: str):
 
 
 @router.get("/{account_id}")
-async def get_account(account_id: int):
+async def get_account(account_id: int, key: str):
     if key != os.environ.get("API_KEY"):
         return {"detail": "Unauthorized! Invalid API key"}
     data = transaction("select id, email, pass, creation, deletion, price, website from account where id = %s",
