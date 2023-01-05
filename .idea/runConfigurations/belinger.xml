@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="belinger" type="Python.FastAPI">
-    <option name="file" value="$PROJECT_DIR$/main.py" />
+    <option name="file" value="$PROJECT_DIR$/app/main.py" />
     <module name="belingapi" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
@@ -9,7 +9,7 @@
       <env name="DB_PASSWORD" value="eeT589b6zL#DB*" />
     </envs>
     <option name="SDK_HOME" value="" />
-    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
     <option name="IS_MODULE_SDK" value="true" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
