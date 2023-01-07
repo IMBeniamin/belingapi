@@ -1,12 +1,14 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="belinger" type="Python.FastAPI">
+  <configuration default="false" name="belingapi" type="Python.FastAPI">
     <option name="file" value="$PROJECT_DIR$/app/main.py" />
     <module name="belingapi" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
-      <env name="DB_USERNAME" value="imben_berlingapi" />
-      <env name="DB_PASSWORD" value="eeT589b6zL#DB*" />
+      <env name="DB_PASSWORD" value="8NoN668Gjmf2vG" />
+      <env name="DB_USERNAME" value="imben_berlingapi_test" />
+      <env name="DB_NAME" value="imben_netflix" />
+      <env name="DB_HOST" value="postgresql-imben.alwaysdata.net" />
     </envs>
     <option name="SDK_HOME" value="" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
