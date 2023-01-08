@@ -1,18 +1,22 @@
-import psycopg2
 import os
+import psycopg2
+from psycopg2 import pool
 
-pgconn = psycopg2.connect(
+# create a connection pool
+conn_pool = psycopg2.pool.ThreadedConnectionPool(
+    minconn=1,
+    maxconn=5,
     host=os.environ['DB_HOST'],
-    database=os.environ['DB_NAME'],
     user=os.environ['DB_USERNAME'],
-    password=os.environ['DB_PASSWORD']
+    password=os.environ['DB_PASSWORD'],
+    database=os.environ['DB_NAME']
 )
 
 
 def transaction(query: str, params: list = None, fetchall: bool = False):
-    cursor = pgconn.cursor()
-    cursor.execute(query, params)
-    data = cursor.fetchall()
-    pgconn.commit()
-    cursor.close()
-    return data
+    with conn_pool.getconn() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(query, params)
+            if fetchall:
+                return cursor.fetchall()
+            return cursor.fetchone()
