@@ -18,5 +18,8 @@ def transaction(query: str, params: list = None, fetchall: bool = False):
         with conn.cursor() as cursor:
             cursor.execute(query, params)
             if fetchall:
-                return cursor.fetchall()
-            return cursor.fetchone()
+                data = cursor.fetchall()
+            else:
+                data = cursor.fetchone()
+        conn_pool.putconn(conn)
+    return data

@@ -9,7 +9,8 @@ api = FastAPI(
     contact={
         "name": "I.M. Beniamin",
         "email": "beniiorga@gmail.com",
-    })
+    },
+)
 
 for loader, name, is_pkg in pkgutil.walk_packages(routes.__path__):
     if is_pkg:
